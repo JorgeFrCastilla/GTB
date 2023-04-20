@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- New XSLT document created with EditiX XML Editor (http://www.editix.com) at Thu Apr 20 11:23:40 WEST 2023 -->
+
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+	<xsl:output method="html"/>
+	
+	<xsl:template match="/">
+	<html>
+		<body>
+		
+<table>
+		
+<tr style="backgorund-color:blue;color:white" >
+		
+<td>Numero</td>
+		
+<td>Curso</td>
+		
+<td>Cial</td>
+		
+<td>Nombre</td>
+		
+<td>Apellidos</td>
+		
+
+<td>Repetidor</td>
+		
+<td>Total de puntos</td>
+		
+<td>Nota Media</td>
+		
+</tr>
+		
+<xsl:for-each select="//alumno">
+		
+
+
+<tr>
+<td><xsl:number value="position()" format="1"/></td>
+		
+<td><xsl:for-each select="../@Curso"></xsl:for-each></td>
+		
+<td><xsl:for-each select="@cial"></xsl:for-each></td>
+		
+<td><xsl:for-each select="nombre"></xsl:for-each></td>
+		
+<td><xsl:for-each select="apellidos"></xsl:for-each></td>
+		
+
+<td><xsl:for-each select="repetidor"></xsl:for-each></td>
+		
+<td><xsl:for-each select="sum(notas/notas)"></xsl:for-each></td>
+		
+<td><xsl:for-each select="sum(notas/nota)div count(notas/nota)"></xsl:for-each></td>
+		
+</tr>
+		
+</xsl:for-each>
+		</table>
+		
+		</body>
+	</html>
+	</xsl:template>
+
+</xsl:stylesheet>
+
